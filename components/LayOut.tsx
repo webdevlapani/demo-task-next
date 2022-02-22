@@ -1,10 +1,10 @@
-import { AppBar, Container, styled, Toolbar, Typography } from "@mui/material";
-import { NextPage } from "next";
-import Link from "next/link";
-import Image from "next/image";
+import { AppBar, Container, styled, Toolbar, Typography } from '@mui/material';
+import { NextPage } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Layout: NextPage = ({ children }) => {
-  const Select = styled("div")`
+  const Select = styled('div')`
     border: 1px solid #dfdfe0;
     background: #ffffff;
     border-radius: 30px;
@@ -15,7 +15,7 @@ const Layout: NextPage = ({ children }) => {
     justify-content: space-between;
   `;
 
-  const Actions = styled("div")`
+  const Actions = styled('div')`
     .action-icon {
       margin-left: 10px;
       display: inline-block;
@@ -23,17 +23,17 @@ const Layout: NextPage = ({ children }) => {
   `;
 
   return (
-    <Container>
+    <Container sx={{ padding: 0 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}
+        sx={{ backgroundColor: '#F5F5F5', boxShadow: 'none' }}
       >
         <Toolbar
           variant="regular"
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
           <Link href="/">
@@ -53,9 +53,9 @@ const Layout: NextPage = ({ children }) => {
               ml={1}
               mr={2}
               sx={{
-                color: "#33373B",
+                color: '#33373B',
                 fontFamily: "'Manrope', sans-serif",
-                fontSize: "16px",
+                fontSize: '16px',
               }}
             >
               Johndoe.near
