@@ -37,7 +37,7 @@ const Layout: FC = ({ children }) => {
   }, []);
 
   return (
-    <Container>
+    <Container sx={{ padding: 0 }}>
       <AppBar
         position="fixed"
         sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}

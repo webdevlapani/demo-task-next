@@ -2,42 +2,44 @@ import Link from "next/link";
 import {
   Container,
   Grid,
-  Card,
   Typography,
   AvatarGroup,
   Avatar,
   Button,
+  Box,
+  Tabs,
+  Tab,
 } from "@mui/material";
-import Image from "next/image";
 import Layout from "../components/Layout";
 import { NextPage } from "next/types";
+import Image from "next/image";
+
+import styles from "styles/Home.module.css";
+import Card from "components/Card";
+import { useState } from "react";
+import TabPane from "components/TabPane";
 
 const Home: NextPage = () => {
+  const [value, setValue] = useState(0);
+
+  const a11yProps = (index: number) => {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  };
+
+  const handleChange = (newValue: number) => {
+    setValue(newValue);
+  };
+
   return (
     <Layout>
-      <Container sx={{ marginTop: "65px", padding: 0 }}>
+      <Container className={styles.container}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <Card
-              sx={{
-                backgroundColor: "#EAEFFF",
-                boxShadow: "none",
-                borderRadius: "10px",
-                padding: "10px",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: 18,
-                  color: "#414047",
-                  lineHeight: "22px",
-                  fontWeight: 600,
-                  display: "flex",
-                  alignItems: "center",
-                  fontFamily: "'Manrope', sans-serif",
-                  justifyContent: "space-between",
-                }}
-              >
+            <Card className={styles.contactCard}>
+              <Typography className={styles.contactCardHeading}>
                 Contacts
                 <Link href="/contacts">
                   <Image
@@ -57,27 +59,8 @@ const Home: NextPage = () => {
             </Card>
           </Grid>
           <Grid item xs={6}>
-            <Card
-              sx={{
-                backgroundColor: "#885FFF",
-                boxShadow: "none",
-                borderRadius: "10px",
-                padding: "10px",
-                height: "100%",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: 18,
-                  color: "#FFFFFF",
-                  lineHeight: "22px",
-                  fontWeight: 600,
-                  display: "flex",
-                  alignItems: "center",
-                  fontFamily: "'Manrope', sans-serif",
-                  justifyContent: "space-between",
-                }}
-              >
+            <Card className={styles.webCard}>
+              <Typography className={styles.webCardHeading}>
                 web3 Apps
                 <Link href="/web3apps">
                   <Image
@@ -88,28 +71,33 @@ const Home: NextPage = () => {
                   />
                 </Link>
               </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  boxShadow: "none",
-                  backgroundColor: "#18D7A9",
-                  bordeRadius: "10px",
-                  fontFamily: "'Manrope', sans-serif",
-                  fontSize: "16px",
-                  textTransform: "inherit",
-                  marginTop: "15px",
-                }}
-              >
+              <Button className={styles.webCardButton} variant="contained">
                 12 Connected
+              </Button>
+            </Card>
+          </Grid>
+          <Grid item xs={12}>
+            <Card className={styles.nftCard}>
+              <Typography className={styles.nftHeading}>
+                Start <br /> Creating your
+                <br /> NFT Today
+              </Typography>
+              <Button className={styles.webCardButton} variant="contained">
+                Create NFT
+                <Link href="/web3apps">
+                  <Image
+                    src="/images/ArrowWhite.svg"
+                    width={16}
+                    height={16}
+                    alt="arrow"
+                  />
+                </Link>
               </Button>
             </Card>
           </Grid>
         </Grid>
       </Container>
-      {/* <div>
-        <Link href="/web3apps"> web3 Apps</Link>
-        <Link href="/contacts"> web3 Apps</Link>
-      </div> */}
+      <TabPane />
     </Layout>
   );
 };
