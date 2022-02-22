@@ -6,9 +6,6 @@ import {
   AvatarGroup,
   Avatar,
   Button,
-  Box,
-  Tabs,
-  Tab,
 } from "@mui/material";
 import Layout from "../components/Layout";
 import { NextPage } from "next/types";
