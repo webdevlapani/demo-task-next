@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import { InputBase } from "@mui/material";
 import Link from "next/link";
-import { useEffect } from "react";
 import Layout from "../components/Layout";
-import { useActions } from "../hooks/useActions";
-import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const Search = styled("div")(() => ({
   position: "relative",
