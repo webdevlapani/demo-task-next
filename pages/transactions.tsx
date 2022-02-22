@@ -1,12 +1,8 @@
-import type { NextPage } from 'next'
-import { Layout } from '../components/LayOut'
+import type { NextPage } from "next";
+import { Layout } from "../components/Layout";
 
 const Transactions: NextPage = () => {
-  return (
-    <Layout>
-        Transactions                                                        
-    </Layout>
-  )
-}
+  return <Layout>Transactions</Layout>;
+};
 
-export default Transactions
+export default Transactions;

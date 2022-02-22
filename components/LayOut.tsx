@@ -1,9 +1,13 @@
 import { AppBar, Container, styled, Toolbar, Typography } from "@mui/material";
-import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { FC, useState } from "react";
+import Dialog from "./Dialog";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useActions } from "../hooks/useActions";
+import { useEffect } from "react";
 
-const Layout: NextPage = ({ children }) => {
+const Layout: FC = ({ children }) => {
   const Select = styled("div")`
     border: 1px solid #dfdfe0;
     background: #ffffff;
@@ -21,6 +25,16 @@ const Layout: NextPage = ({ children }) => {
       display: inline-block;
     }
   `;
+
+  const [open, setOpen] = useState(false);
+
+  const accounts = useTypedSelector((state) => state.accounts);
+
+  const { getAccounts } = useActions();
+
+  useEffect(() => {
+    getAccounts();
+  }, []);
 
   return (
     <Container>
@@ -49,6 +63,7 @@ const Layout: NextPage = ({ children }) => {
             <Typography
               variant="h6"
               noWrap
+              onClick={() => setOpen(true)}
               component="div"
               ml={1}
               mr={2}
@@ -58,8 +73,13 @@ const Layout: NextPage = ({ children }) => {
                 fontSize: "16px",
               }}
             >
-              Johndoe.near
+              {
+                accounts.data?.filter(
+                  ({ isCurrentAccount }) => isCurrentAccount
+                )[0]?.name
+              }
             </Typography>
+            <Dialog open={open} setOpen={setOpen} />
             <Image
               src="/images/SelectIcon.svg"
               width={12}

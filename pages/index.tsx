@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import {
   Container,
@@ -10,7 +9,8 @@ import {
   Button,
 } from "@mui/material";
 import Image from "next/image";
-import Layout from "../components/LayOut";
+import Layout from "../components/Layout";
+import { NextPage } from "next/types";
 
 const Home: NextPage = () => {
   return (

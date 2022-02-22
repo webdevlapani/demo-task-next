@@ -1,20 +1,29 @@
-import { ActionType } from '../action-types';
+import { ActionType } from "../action-types";
 
-interface GetContactAction {
-  type: ActionType.GET_CONTACTS;
+export interface User {
+  id: number;
+  name: string;
+  age: number;
+  amount: number;
+  avatar: string;
+  isCurrentAccount: boolean;
 }
 
-interface GetContactSuccessAction {
-  type: ActionType.GET_CONTACTS_SUCCESS;
-  payload: string[];
+interface GetAccountsAction {
+  type: ActionType.GET_ACCOUNTS;
 }
 
-interface GetContactFailureAction {
-  type: ActionType.GET_CONTACTS_FAILURE;
+interface GetAccountsSuccessAction {
+  type: ActionType.GET_ACCOUNTS_SUCCESS;
+  payload: User[];
+}
+
+interface GetAccountsFailureAction {
+  type: ActionType.GET_ACCOUNTS_FAILURE;
   payload: string;
 }
 
 export type Action =
-  | GetContactAction
-  | GetContactSuccessAction
-  | GetContactFailureAction;
+  | GetAccountsAction
+  | GetAccountsSuccessAction
+  | GetAccountsFailureAction;
