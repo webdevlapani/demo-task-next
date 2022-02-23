@@ -87,6 +87,8 @@ const NewContact: NextPage = () => {
                 borderRadius: "10px",
                 boxShadow: "none",
                 maxWidth: "150px",
+                textTransform: "inherit",
+                fontSize: "16px",
               }}
               endIcon={
                 <Image
@@ -101,14 +103,6 @@ const NewContact: NextPage = () => {
             </Button>
           </Box>
         </Box>
-
-        {/* <TextField label="Full name" placeholder="Ex. John doe" /> */}
-        {/* <TextField label="Email" placeholder="webdev@gmail.com" />
-        <TextField label="Phone (optional)" placeholder="Ex. +123545454" />
-        <TextField
-          label="Near Account ID (optinal)"
-          placeholder="Ex. John near"
-        /> */}
       </Container>
     </Layout>
   );
