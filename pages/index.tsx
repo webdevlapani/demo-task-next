@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   Container,
   Grid,
@@ -9,15 +9,15 @@ import {
   Box,
   Tabs,
   Tab,
-} from "@mui/material";
-import Layout from "../components/Layout";
-import { NextPage } from "next/types";
-import Image from "next/image";
+} from '@mui/material';
+import Layout from 'components/LayOut';
+import { NextPage } from 'next/types';
+import Image from 'next/image';
 
-import styles from "styles/Home.module.css";
-import Card from "components/Card";
-import { useState } from "react";
-import TabPane from "components/TabPane";
+import styles from 'styles/Home.module.css';
+import Card from 'components/Card';
+import { useState } from 'react';
+import TabPane from 'components/TabPane';
 
 const Home: NextPage = () => {
   const [value, setValue] = useState(0);
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   const a11yProps = (index: number) => {
     return {
       id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
     };
   };
 
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                   />
                 </Link>
               </Typography>
-              <AvatarGroup max={4} spacing={10} sx={{ marginTop: "15px" }}>
+              <AvatarGroup max={4} spacing={10} sx={{ marginTop: '15px' }}>
                 <Avatar alt="Remy Sharp" src="images/Avatar.jpg" />
                 <Avatar alt="Travis Howard" src="/images/Ellipse1.svg" />
                 <Avatar alt="Cindy Baker" src="/images/Avatar.jpg" />
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                 Start <br /> Creating your
                 <br /> NFT Today
               </Typography>
-              <Button className={styles.webCardButton} variant="contained">
+              <Button className={styles.nftCardButton} variant="contained">
                 Create NFT
                 <Link href="/web3apps">
                   <Image

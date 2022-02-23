@@ -1,0 +1,41 @@
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: #dfdfe0;
+  border-radius: 10px;
+}
+.contact_box {
+  display: flex;
+}
+
+.listBox {
+  width: 60px;
+  height: 60px;
+  background-color: #dfdfe0;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.tabList {
+  flex-grow: 1;
+  font-size: 16px;
+  letter-spacing: -0.154px;
+  line-height: 20px;
+  text-transform: inherit;
+}
+
+.listboxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.listHeading {
+  font-size: 16px;
+}
+
+.listboxInner {
+  display: flex;
+  align-items: center;
+}

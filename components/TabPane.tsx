@@ -1,5 +1,14 @@
-import { Box, Tab, Tabs, Typography } from '@mui/material';
-import React from 'react';
+import {
+  Box,
+  List,
+  ListItemButton,
+  Tab,
+  Tabs,
+  Typography,
+} from '@mui/material';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import styles from 'styles/TabPane.module.css';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -10,6 +19,15 @@ interface TabPanelProps {
 const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
+  const [selectedIndex, setSelectedIndex] = useState(1);
+
+  const handleListItemClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number
+  ) => {
+    setSelectedIndex(index);
+  };
+
   return (
     <div
       role="tabpanel"
@@ -19,9 +37,62 @@ const TabPanel = (props: TabPanelProps) => {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
+        <List
+          style={{ padding: 0 }}
+          component="nav"
+          aria-label="secondary mailbox folder"
+        >
+          <ListItemButton
+            selected={selectedIndex === 1}
+            onClick={(event) => handleListItemClick(event, 1)}
+          >
+            <Box className={styles.listboxWrapper}>
+              <Box className={styles.listboxInner}>
+                <Box className={styles.listBox} />
+                <Typography variant="h6" className={styles.listHeading}>
+                  Digital Ninja <br />
+                  by{' '}
+                  <Typography color="primary" sx={{ display: 'inline-block' }}>
+                    johndoe.near
+                  </Typography>
+                </Typography>
+              </Box>
+              <Box>
+                <Image
+                  src="/images/Arrow.svg"
+                  width={20}
+                  height={20}
+                  alt="icon"
+                />
+              </Box>
+            </Box>
+          </ListItemButton>
+          <ListItemButton
+            selected={selectedIndex === 2}
+            onClick={(event) => handleListItemClick(event, 2)}
+          >
+            <Box className={styles.listboxWrapper}>
+              <Box className={styles.listboxInner}>
+                <Box className={styles.listBox} />
+                <Typography variant="h6" className={styles.listHeading}>
+                  Panda <br />
+                  by{' '}
+                  <Typography color="primary" sx={{ display: 'inline-block' }}>
+                    whitegoose497
+                  </Typography>
+                </Typography>
+              </Box>
+              <Box>
+                <Image
+                  src="/images/Arrow.svg"
+                  width={20}
+                  height={20}
+                  alt="icon"
+                />
+              </Box>
+            </Box>
+          </ListItemButton>
+        </List>
       )}
     </div>
   );
@@ -48,20 +119,31 @@ const TabPane = () => {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          TabIndicatorProps={{
+            style: {
+              backgroundColor: 'secondary',
+              height: '3px',
+            },
+          }}
+          textColor="secondary"
+          indicatorColor="secondary"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab
+            className={styles.tabList}
+            label="Collectibles"
+            {...a11yProps(0)}
+          />
+          <Tab
+            className={styles.tabList}
+            label="Transactions"
+            {...a11yProps(1)}
+          />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
+      <TabPanel value={value} index={0}></TabPanel>
+
       <TabPanel value={value} index={1}>
         Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
       </TabPanel>
     </Box>
   );
