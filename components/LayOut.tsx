@@ -1,14 +1,24 @@
-import { AppBar, Container, styled, Toolbar, Typography } from '@mui/material';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FC, useState } from 'react';
-import Dialog from './Dialog';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { useActions } from '../hooks/useActions';
-import { useEffect } from 'react';
+import {
+  AppBar,
+  Button,
+  Container,
+  styled,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import Link from "next/link";
+import Image from "next/image";
+import { FC, useState } from "react";
+import Dialog from "./Dialog";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useActions } from "../hooks/useActions";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Layout: FC = ({ children }) => {
-  const Select = styled('div')`
+  const router = useRouter();
+
+  const Select = styled("div")`
     border: 1px solid #dfdfe0;
     background: #ffffff;
     border-radius: 30px;
@@ -19,7 +29,7 @@ const Layout: FC = ({ children }) => {
     justify-content: space-between;
   `;
 
-  const Actions = styled('div')`
+  const Actions = styled("div")`
     .action-icon {
       margin-left: 10px;
       display: inline-block;
@@ -40,19 +50,51 @@ const Layout: FC = ({ children }) => {
     <Container sx={{ padding: 0 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: '#F5F5F5', boxShadow: 'none' }}
+        sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}
       >
         <Toolbar
           variant="regular"
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          <Link href="/">
-            <Image src="/images/logo.svg" alt="logo" width={20} height={20} />
-          </Link>
+          {router.pathname === "/" ? (
+            <>
+              <Link href="/">
+                <Image
+                  src="/images/logo.svg"
+                  alt="logo"
+                  width={20}
+                  height={20}
+                />
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button
+                onClick={() => router.back()}
+                variant="text"
+                sx={{ p: 0, minWidth: "auto" }}
+              >
+                <Image
+                  src="/images/BackArrowIcon.svg"
+                  alt="logo"
+                  width={20}
+                  height={20}
+                />
+              </Button>
+              <Link href="/">
+                <Image
+                  src="/images/HomeIcon.svg"
+                  alt="logo"
+                  width={20}
+                  height={20}
+                />
+              </Link>
+            </>
+          )}
           <Select>
             <Image
               src="/images/AccountIcon.svg"
@@ -68,9 +110,9 @@ const Layout: FC = ({ children }) => {
               ml={1}
               mr={2}
               sx={{
-                color: '#33373B',
+                color: "#33373B",
                 fontFamily: "'Manrope', sans-serif",
-                fontSize: '16px',
+                fontSize: "16px",
               }}
             >
               {

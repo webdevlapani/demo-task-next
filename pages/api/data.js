@@ -6,6 +6,7 @@ export const data = [
     amount: 0.23,
     isCurrentAccount: true,
     avatar: "/images/AvatarIcon.svg",
+    walletId: "lebron.near",
   },
   {
     id: 1,
@@ -14,6 +15,7 @@ export const data = [
     amount: 1.56,
     isCurrentAccount: false,
     avatar: "/images/AvatarIcon.svg",
+    walletId: ".near",
   },
   {
     id: 2,

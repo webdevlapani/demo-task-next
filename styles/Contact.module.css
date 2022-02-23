@@ -1,0 +1,37 @@
+.container {
+  margin-top: 56px;
+}
+
+.searchBox {
+  margin-top: 10px;
+}
+
+.searchBox div {
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+.searchBox fieldset {
+  border: 0;
+}
+.heading {
+  padding: 20px;
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.154px;
+  font-weight: 500;
+}
+
+.formBox {
+  padding: 10px;
+}
+
+.inputLabel {
+  color: #6f6e73;
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 500;
+}
