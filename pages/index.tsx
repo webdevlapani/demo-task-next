@@ -10,7 +10,7 @@ import {
   Tabs,
   Tab,
 } from '@mui/material';
-import Layout from 'components/LayOut';
+import Layout from 'components/Layout';
 import { NextPage } from 'next/types';
 import Image from 'next/image';
 
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
             <Card className={styles.contactCard}>
               <Typography className={styles.contactCardHeading}>
                 Contacts
-                <Link href="/contacts">
+                <Link passHref href="/contacts">
                   <Image
                     src="/images/Arrow.svg"
                     width={16}

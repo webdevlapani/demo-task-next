@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { wrapper } from '../redux';
+import { wrapper } from '../store';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from 'src/theme';
 
