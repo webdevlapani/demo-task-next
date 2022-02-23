@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import type { NextPage } from "next";
-import { Layout } from "../components/Layout";
+import Layout from "components/Layout";
 
 const Notifications: NextPage = () => {
   return (

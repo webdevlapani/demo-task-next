@@ -15,13 +15,14 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "components/Layout";
-import { FC, useState } from "react";
+import { useState } from "react";
 
 import styles from "styles/Contact.module.css";
 import { contactList } from "constant/Contact";
 import ContactDialog from "components/ContactDialog";
+import { NextPage } from "next";
 
-const Contacts: FC = () => {
+const Contacts: NextPage = () => {
   const [open, setOpen] = useState(false);
   const [checked, setChecked] = useState([0]);
 
@@ -148,8 +149,6 @@ const Contacts: FC = () => {
             );
           })}
         </List>
-
-        {/* <Link href="/contactprofile">Shiva Mahadev</Link> */}
       </Container>
     </Layout>
   );
