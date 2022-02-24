@@ -1,7 +1,7 @@
-import { Card as MCard } from '@mui/material';
-import { FC } from 'react';
+import { Card as MCard } from "@mui/material";
+import { FC } from "react";
 
-import styles from '../styles/Card.module.css';
+import styles from "styles/Card.module.css";
 
 interface CardProps {
   className?: string | undefined;

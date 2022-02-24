@@ -6,33 +6,16 @@ import {
   AvatarGroup,
   Avatar,
   Button,
-  Box,
-  Tabs,
-  Tab,
 } from "@mui/material";
-import Layout from "components/Layout";
 import { NextPage } from "next/types";
 import Image from "next/image";
 
+import Layout from "components/Layout";
 import styles from "styles/Home.module.css";
 import Card from "components/Card";
-import { useState } from "react";
 import TabPane from "components/TabPane";
 
 const Home: NextPage = () => {
-  const [value, setValue] = useState(0);
-
-  const a11yProps = (index: number) => {
-    return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-    };
-  };
-
-  const handleChange = (newValue: number) => {
-    setValue(newValue);
-  };
-
   return (
     <Layout>
       <Container className={styles.container}>
@@ -62,7 +45,7 @@ const Home: NextPage = () => {
             <Card className={styles.webCard}>
               <Typography className={styles.webCardHeading}>
                 web3 Apps
-                <Link href="/web3apps">
+                <Link passHref href="/">
                   <Image
                     src="/images/ArrowWhite.svg"
                     width={16}
@@ -84,7 +67,7 @@ const Home: NextPage = () => {
               </Typography>
               <Button className={styles.nftCardButton} variant="contained">
                 Create NFT
-                <Link href="/web3apps">
+                <Link passHref href="/">
                   <Image
                     src="/images/ArrowWhite.svg"
                     width={16}

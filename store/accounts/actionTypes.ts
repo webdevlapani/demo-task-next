@@ -1,0 +1,6 @@
+export enum AccountsActionType {
+  //Get All Accounts
+  GET_ACCOUNTS = "GET_ACCOUNTS",
+  GET_ACCOUNTS_SUCCESS = "GET_ACCOUNTS_SUCCESS",
+  GET_ACCOUNTS_FAILURE = "GET_ACCOUNTS_FAILURE",
+}

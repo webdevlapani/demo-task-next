@@ -1,5 +1,6 @@
-import { ActionType } from "../action-types";
-import { Action, User } from "../actions";
+import { User } from "interface/user";
+import { AccountsAction } from "./actions";
+import { AccountsActionType } from "./actionTypes";
 
 interface AccountsState {
   loading: boolean;
@@ -13,20 +14,22 @@ const initialState = {
   data: [],
 };
 
-const reducer = (
+const accountsReducer = (
   state: AccountsState = initialState,
-  action: Action
+  action: AccountsAction
 ): AccountsState => {
   switch (action.type) {
-    case ActionType.GET_ACCOUNTS:
+    // Get All Accounts
+    case AccountsActionType.GET_ACCOUNTS:
       return { loading: true, error: null, data: [] };
-    case ActionType.GET_ACCOUNTS_SUCCESS:
+    case AccountsActionType.GET_ACCOUNTS_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case ActionType.GET_ACCOUNTS_FAILURE:
+    case AccountsActionType.GET_ACCOUNTS_FAILURE:
       return { loading: false, error: action.payload, data: [] };
+
     default:
       return state;
   }
 };
 
-export default reducer;
+export default accountsReducer;

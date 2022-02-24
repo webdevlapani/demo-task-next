@@ -8,12 +8,12 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
-import { FC, useState } from "react";
-import Dialog from "./Dialog";
-import { useTypedSelector } from "../hooks/useTypedSelector";
-import { useActions } from "../hooks/useActions";
-import { useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import { useRouter } from "next/router";
+
+import Dialog from "./AccountsDialog";
+import { useTypedSelector } from "hooks/useTypedSelector";
+import { useActions } from "hooks/useActions";
 
 const Layout: FC = ({ children }) => {
   const router = useRouter();
@@ -62,7 +62,7 @@ const Layout: FC = ({ children }) => {
         >
           {router.pathname === "/" ? (
             <>
-              <Link href="/">
+              <Link passHref href="/">
                 <Image
                   src="/images/logo.svg"
                   alt="logo"
@@ -85,7 +85,7 @@ const Layout: FC = ({ children }) => {
                   height={20}
                 />
               </Button>
-              <Link href="/">
+              <Link passHref href="/">
                 <Image
                   src="/images/HomeIcon.svg"
                   alt="logo"

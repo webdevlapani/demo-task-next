@@ -5,10 +5,11 @@ import {
   Tab,
   Tabs,
   Typography,
-} from '@mui/material';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import styles from 'styles/TabPane.module.css';
+} from "@mui/material";
+import React, { useState } from "react";
+import Image from "next/image";
+
+import styles from "styles/TabPane.module.css";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -51,8 +52,8 @@ const TabPanel = (props: TabPanelProps) => {
                 <Box className={styles.listBox} />
                 <Typography variant="h6" className={styles.listHeading}>
                   Digital Ninja <br />
-                  by{' '}
-                  <Typography color="primary" sx={{ display: 'inline-block' }}>
+                  by{" "}
+                  <Typography color="primary" sx={{ display: "inline-block" }}>
                     johndoe.near
                   </Typography>
                 </Typography>
@@ -76,8 +77,8 @@ const TabPanel = (props: TabPanelProps) => {
                 <Box className={styles.listBox} />
                 <Typography variant="h6" className={styles.listHeading}>
                   Panda <br />
-                  by{' '}
-                  <Typography color="primary" sx={{ display: 'inline-block' }}>
+                  by{" "}
+                  <Typography color="primary" sx={{ display: "inline-block" }}>
                     whitegoose497
                   </Typography>
                 </Typography>
@@ -101,7 +102,7 @@ const TabPanel = (props: TabPanelProps) => {
 const a11yProps = (index: number) => {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 };
 
@@ -113,16 +114,16 @@ const TabPane = () => {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
           TabIndicatorProps={{
             style: {
-              backgroundColor: 'secondary',
-              height: '3px',
+              backgroundColor: "secondary",
+              height: "3px",
             },
           }}
           textColor="secondary"

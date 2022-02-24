@@ -1,25 +1,25 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import { ActionType } from "../action-types";
-import { Action } from "../actions";
+import { AccountsAction } from "store/accounts/actions";
+import { AccountsActionType } from "store/accounts/actionTypes";
 
 export const getAccounts = () => {
-  return async (dispatch: Dispatch<Action>) => {
+  return async (dispatch: Dispatch<AccountsAction>) => {
     dispatch({
-      type: ActionType.GET_ACCOUNTS,
+      type: AccountsActionType.GET_ACCOUNTS,
     });
 
     await axios
       .get("http://localhost:3000/api/user/", {})
       .then(({ data }) => {
         dispatch({
-          type: ActionType.GET_ACCOUNTS_SUCCESS,
+          type: AccountsActionType.GET_ACCOUNTS_SUCCESS,
           payload: data,
         });
       })
       .catch((err) => {
         dispatch({
-          type: ActionType.GET_ACCOUNTS_FAILURE,
+          type: AccountsActionType.GET_ACCOUNTS_FAILURE,
           payload: err.message,
         });
       });

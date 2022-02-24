@@ -8,11 +8,11 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import ListItem from "./ListItem";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
-import { useState } from "react";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+
+import ListItem from "./AccountsListItem";
+import { useTypedSelector } from "hooks/useTypedSelector";
 
 interface Props {
   open: boolean;
